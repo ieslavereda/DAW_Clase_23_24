@@ -10,4 +10,13 @@ public class Carta {
         this.tipo=tipo;
     }
 
+
+    public int[] getValues(){
+        return tipo.getValues();
+    }
+
+    @Override
+    public String toString(){
+        return tipo.toString()+palo;
+    }
 }
