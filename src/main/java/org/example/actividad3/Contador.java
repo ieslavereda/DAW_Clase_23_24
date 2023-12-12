@@ -2,6 +2,7 @@ package org.example.actividad3;
 
 public class Contador {
 
+    //private static int cantidad = 0;
     private int cantidad = 0;
 
 
