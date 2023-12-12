@@ -19,10 +19,8 @@ public enum Palo {
         this.color=color;
     }
 
-
     @Override
     public String toString(){
-
         return colorize(""+shape, color.getColor());
     }
 
