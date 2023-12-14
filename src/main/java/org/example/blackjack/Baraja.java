@@ -22,6 +22,9 @@ public class Baraja {
 
     }
 
+
+
+
     public void shuffle(){
         List<Carta> aux = Arrays.asList(cartas);
         Collections.shuffle(aux);
@@ -30,6 +33,43 @@ public class Baraja {
         for(Carta c : aux)
             cartas[i++]=c;
     }
+
+    public void cut(){
+
+    }
+
+    public Carta showTop(){
+
+        if(cartas.length==0)
+            return null;
+
+        return cartas[0];
+
+    }
+
+    public Carta removeTop(){
+
+        if(cartas.length==0)
+            return null;
+
+        Carta c = cartas[0];
+
+        Carta[] aux = new Carta[cartas.length - 1];
+
+        for(int i=0;i<aux.length;i++)
+            aux[i]=cartas[i+1];
+
+        cartas=aux;
+
+        return c;
+    }
+
+
+
+    public Carta removeBotom(){
+        return null;
+    }
+
 
     @Override
     public String toString(){
