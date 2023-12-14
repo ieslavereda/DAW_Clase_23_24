@@ -1,6 +1,8 @@
 package org.example.blackjack;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Baraja {
 
@@ -18,6 +20,15 @@ public class Baraja {
             for (Tipo tipo : Tipo.values())
                 cartas[i++]=new Carta(tipo,palo);
 
+    }
+
+    public void shuffle(){
+        List<Carta> aux = Arrays.asList(cartas);
+        Collections.shuffle(aux);
+
+        int i=0;
+        for(Carta c : aux)
+            cartas[i++]=c;
     }
 
     @Override
