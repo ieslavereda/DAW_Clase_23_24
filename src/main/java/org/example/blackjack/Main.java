@@ -8,10 +8,13 @@ public class Main {
         Baraja b =new Baraja();
         b.shuffle();
 
-        for(int i=0;i<54;i++)
-            System.out.println(b.removeTop());
+        for(int i=0;i<55;i++)
+            b.removeBotom();
 
         System.out.println(b);
+        b.cut();
+        System.out.println(b);
+
 
     }
 }
