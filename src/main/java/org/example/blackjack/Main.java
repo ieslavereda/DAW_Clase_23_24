@@ -5,15 +5,13 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        Baraja b =new Baraja();
-        b.shuffle();
 
-        for(int i=0;i<55;i++)
-            b.removeBotom();
+        Jugador jugador1 = new Jugador("Joaquin");
+        Jugador jugador2 = new Jugador("Carmen");
 
-        System.out.println(b);
-        b.cut();
-        System.out.println(b);
+        Game game = new Game(jugador1,jugador2);
+        game.start();
+
 
 
     }
