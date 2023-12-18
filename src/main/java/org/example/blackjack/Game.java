@@ -28,22 +28,70 @@ public class Game {
 
     public void start(){
 
+        baraja.shuffle();
+
+        jueganJugadores();
+        juegaBanca();
+        mostrarGanadores();
+
+    }
+
+    private void mostrarGanadores() {
+
+        if(banca.pasado()){
+
+            for(Jugador jugador : jugadores){
+                if(jugador.win(banca))
+                    System.out.println("El jugador " + jugador.getNombre()+" gana!");
+            }
+
+        } else {
+
+            System.out.println("Gana la BANCA!!!");
+
+        }
+
+
+    }
+
+    private void juegaBanca() {
+
+        while(!banca.pasado() && !banca.winAll(jugadores)) {
+            banca.cogerCarta(baraja.removeTop());
+            System.out.println(banca);
+
+            try {
+                Thread.sleep(2000);
+            }catch (Exception e){}
+        }
+
+    }
+
+    private void jueganJugadores() {
         boolean quiereCarta;
 
         for(Jugador jugador: jugadores) {
+
+            quiereCarta=true;
+
+            System.out.println("Empieza a jugar "+ jugador.getNombre());
 
             do {
 
                 jugador.cogerCarta(baraja.removeTop());
                 System.out.println(jugador);
-                quiereCarta = solicitarQuiereCarta(jugador);
+
+                if(!jugador.pasado())
+                    quiereCarta = solicitarQuiereCarta(jugador);
 
             } while (quiereCarta && !jugador.pasado());
 
+            if(jugador.pasado())
+                System.out.println("Te has pasado!!!");
 
         }
-
     }
+
 
     private boolean solicitarQuiereCarta(Jugador jugador) {
 
