@@ -4,18 +4,18 @@ import java.util.Arrays;
 
 public class Mano {
 
-    private Carta[] cartas;
+    private Lista<Carta> cartas;
 
     public Mano(){
-        cartas = new Carta[0];
+        cartas = new Lista<>();
     }
 
     public int obtenerPuntuacion(){
 
         int puntuacion=0;
 
-        for(Carta carta : cartas)
-            puntuacion+=carta.getValues()[0];
+        for(int i=0;i<cartas.getSize();i++)
+            puntuacion+= cartas.get(i).getValues()[0];
 
         return puntuacion;
 
@@ -23,20 +23,13 @@ public class Mano {
 
     public void addCard(Carta carta){
 
-        Carta[] aux = new Carta[cartas.length+1];
-
-        aux[0] = carta;
-
-        for(int i=0;i< cartas.length;i++)
-            aux[i+1]=cartas[i];
-
-        cartas=aux;
+        cartas.addHead(carta);
 
     }
 
     @Override
     public String toString(){
-        return Arrays.toString(cartas);
+        return cartas.toString();
     }
 
 }
